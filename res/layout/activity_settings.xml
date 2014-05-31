@@ -1,0 +1,20 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mridang.network.SettingsActivity$PlaceholderFragment" >
+
+    <Button
+        android:id="@+id/startService"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Start" />
+
+    <Button
+        android:id="@+id/stopService"
+        android:layout_toRightOf="@id/startService"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Stop" />
+
+</RelativeLayout>
