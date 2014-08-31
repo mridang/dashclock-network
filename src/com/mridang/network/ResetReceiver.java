@@ -7,7 +7,8 @@ import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 
 /**
- * Broadcast receiver class to reset the statistics using an alarm at the end of every month
+ * Broadcast receiver class to reset the statistics using an alarm at the end of
+ * every month
  */
 public class ResetReceiver extends BroadcastReceiver {
 
@@ -18,9 +19,9 @@ public class ResetReceiver extends BroadcastReceiver {
 	public void onReceive(Context ctxContext, Intent ittIntent) {
 
 		Editor ediSettings = PreferenceManager.getDefaultSharedPreferences(ctxContext).edit();
-	    ediSettings.putLong("mobile", 0);
-	    ediSettings.putLong("total", 0);
-	    ediSettings.commit();
+		ediSettings.putLong("mobile", 0);
+		ediSettings.putLong("total", 0);
+		ediSettings.commit();
 
 	}
 
