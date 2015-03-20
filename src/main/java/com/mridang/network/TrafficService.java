@@ -1,7 +1,5 @@
 package com.mridang.network;
 
-import org.acra.ACRA;
-
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -23,9 +21,10 @@ import android.os.Message;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationCompat.Builder;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+
+import org.acra.ACRA;
 
 /**
  * Main service class that monitors the network speed and updates the
@@ -134,11 +133,11 @@ public class TrafficService extends Service {
 	}
 
 	/** The instance of the handler that updates the notification */
-	public static NotificationHandler hndNotifier;
+	private static NotificationHandler hndNotifier;
 	/** The instance of the manager of the connectivity services */
 	private static ConnectivityManager mgrConnectivity;
 	/** The instance of the manager of the notification services */
-	public static NotificationManager mgrNotifications;
+	private static NotificationManager mgrNotifications;
 	/** The instance of the manager of the wireless services */
 	private static WifiManager mgrWireless;
 	/** The instance of the manager of the telephony services */
@@ -146,7 +145,7 @@ public class TrafficService extends Service {
 	/** The instance of the manager of the telephony services */
 	private static PowerManager mgrPower;
 	/** The instance of the notification builder to rebuild the notification */
-	public static Builder notBuilder;
+	private static NotificationCompat.Builder notBuilder;
 	/** The instance of the broadcast receiver to handle intents */
 	private BroadcastReceiver recScreen;
 
@@ -254,7 +253,11 @@ public class TrafficService extends Service {
 		notBuilder = notBuilder.setContentIntent(pitSettings);
 		notBuilder = notBuilder.setOngoing(true);
 		notBuilder = notBuilder.setWhen(0);
+        notBuilder = notBuilder.setOnlyAlertOnce(true);
 		notBuilder = notBuilder.setPriority(Integer.MAX_VALUE);
+        notBuilder = notBuilder.setVisibility(NotificationCompat.VISIBILITY_SECRET);
+        notBuilder = notBuilder.setCategory(NotificationCompat.CATEGORY_SERVICE);
+
 		connectivityUpdate();
 
 		return super.onStartCommand(ittIntent, flags, startId);

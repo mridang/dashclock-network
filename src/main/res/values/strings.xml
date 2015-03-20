@@ -7,7 +7,7 @@
     <string name="extension_name">Network</string>
     <string name="status">%1$s of data transferred</string>
     <string name="application_name">Dashclock Network Extension</string>
-    <string name="extension_info">Displays information about the amount of data tranferred.</string>
+    <string name="extension_info">Displays information about the amount of data transferred.</string>
     <string name="message">%1$s over mobile networks and %2$s over wireless networks</string>
     <string name="summary">Show a notification when a new warning or failure occurs</string>
     <string name="notification">Show notification</string>
